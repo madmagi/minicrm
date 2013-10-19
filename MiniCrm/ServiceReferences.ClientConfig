@@ -1,0 +1,16 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="SoapBinding" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+                    <security mode="Transport" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="https://login.salesforce.com/services/Soap/u/28.0"
+                binding="basicHttpBinding" bindingConfiguration="SoapBinding"
+                contract="sforce.Soap" name="Soap" />
+        </client>
+    </system.serviceModel>
+</configuration>

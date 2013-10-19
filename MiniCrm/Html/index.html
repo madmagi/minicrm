@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyApp</title>
+    <script src="http://172.17.1.154:8080/target/target-script-min.js#anonymous"></script>        
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- This script is added by PhoneGap build -->
+    <!-- <script type="text/javascript" src="cordova.js"></script> -->
+    
+    <script type="text/javascript" src="/Html/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/Html/js/knockout-2.2.1.js"></script>
+    <script type="text/javascript" src="/Html/js/globalize.min.js"></script>
+
+    <script type="text/javascript" src="/Html/js/dx.phonejs.js"></script>
+    
+	<link rel="stylesheet" type="text/css" href="/Html/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="/Html/css/dx.ios.default.css" />
+    <link rel="stylesheet" type="text/css" href="/Html/css/dx.android.holo-dark.css" />
+    <link rel="stylesheet" type="text/css" href="/Html/css/dx.win8.black.small.css" />
+    <link rel="stylesheet" type="text/css" href="/Html/css/dx.desktop.default.css" />
+
+    <!-- App -->
+    <link rel="stylesheet" type="text/css" href="/Html/index.css" />
+    <script type="text/javascript" src="/Html/index.js"></script>    
+
+    <!-- Layouts -->
+    <script type="text/javascript" src="/Html/layouts/Navbar/NavbarLayout.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Html/layouts/Navbar/NavbarLayout.css" />
+    <link rel="dx-template" type="text/html" href="/Html/layouts/Navbar/NavbarLayout.html"/>
+
+    <!-- App views -->
+    <link rel="stylesheet" type="text/css" href="/Html/views/home.css" />
+    <script type="text/javascript" src="/Html/views/home.js"></script>
+    <script type="text/javascript" src="/Html/views/details.js"></script>
+    <link rel="dx-template" type="text/html" href="/Html/views/home.html"/>
+    <link rel="dx-template" type="text/html" href="/Html/views/about.html"/>
+    <link rel="dx-template" type="text/html" href="/Html/views/details.html"/>
+</head>
+<body>   
+    <div class="dx-viewport"></div>
+    <script type="text/javascript">
+
+        function SFInit() {
+            // there will be instead of SessionId an array of items
+            // split the items into 2
+            // MyApp.Contacts = array items as { id: first half, name: second half}
+            var len = arguments.length;            
+            MyApp.Contacts = new Array(len);
+            for (var i = 0; i < len; i++) {            
+                 var n = arguments[i].split("|");
+                 var key = n[0];
+                 var name = n[1];
+                 var phone = n[2];
+                 var person = new Object();
+                person.name = name;
+                person.id = key;
+                person.phone = phone;
+                person.location = i;
+                MyApp.Contacts[i] = person;
+            }
+           
+            MyApp.app.navigate();            
+        }
+
+    </script>
+</body>
+</html>
